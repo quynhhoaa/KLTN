@@ -1,0 +1,7 @@
+﻿@model List<DataLayer.EF.Category>
+
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item clearfix"><a href="/danh-muc?categoryID=@item.ID"><i class="fa fa-angle-right"></i> @item.CategoryName</a></li>
+        
+    }

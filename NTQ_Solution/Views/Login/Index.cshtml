@@ -1,0 +1,81 @@
+﻿@model NTQ_Solution.Areas.Admin.Data.LoginModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Latform - Login and Register Form Templates</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assests/dist/vendor/bootstrap-4.5.3/css/bootstrap.min.css" type="text/css">
+    <!-- Material design icons -->
+    <link rel="stylesheet" href="/assests/dist/icons/material-design-icons/css/mdi.min.css" type="text/css">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <!-- Latform styles -->
+    <link rel="stylesheet" href="/assests/dist/css/latform-style-1.min.css" type="text/css">
+</head>
+<body>
+    <div class="form-wrapper">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="logo">
+                        <img src="/assests/dist/images/logo-colorful.png" alt="logo">
+                    </div>
+                    <div class="my-5 text-center">
+                        <h3 class="font-weight-bold mb-3">Đăng nhập</h3>
+                    </div>
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" });
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="form-icon-wrapper">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @autofocus = "autofocus" })
+                            <i class="form-icon-left mdi mdi-email"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="form-icon-wrapper">
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                            <i class="form-icon-left mdi mdi-lock"></i>
+                            <a href="#" class="form-icon-right password-show-hide" title="Hide or show password">
+                                <i class="mdi mdi-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="d-md-flex justify-content-between">
+                            <div class="custom-control custom-checkbox mb-2 mb-md-0">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                <label class="custom-control-label" for="customCheck1">Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                    </div>
+                    <p class="text-center">
+                        @Html.ActionLink("Quay lại", "Index", "Home")
+                    </p>
+                    <p class="text-center">
+                        <a href="/Register/Index">Đăng ký</a>.
+                    </p>
+                    
+                </form>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jquery -->
+    <script src="/assests/dist/vendor/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/assests/dist/vendor/bootstrap-4.5.3/js/bootstrap.min.js"></script>
+    <!-- Latform scripts -->
+    <script src="/assests/dist/js/latform.min.js"></script>
+</body>
+</html>
